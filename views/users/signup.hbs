@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-8">
             <div class="cardno great gr" >
             <div class="card-body">
-                <div class="h2" style="color: #4636F4">Code\n</div>
+                <img class="beer" src="../.././images/1.png">
                 <div class="h4">Validate the programming skills of potential employees</div>
                 <hr>
                 <ul class="h5 ">
@@ -25,6 +25,15 @@
 
             <div class="form-group great1">
                 <h4>Sign up</h4>
+                {{#if hasErrors}}
+                    <div class="alert alert-danger">
+                        {{#each message}}
+                            <p>{{this}}</p>
+
+                        {{/each}}
+                    </div>
+
+                    {{/if}}
                 <label>Email</label>
                 <input type="text" class="form-control" name="email">
             </div>
@@ -39,7 +48,7 @@
         <hr>
 
         <p>Already have an account? <a href="/">Login</a></p>
-        <p>Or go <a href="/">home</a>.</p>
+
 
 
         </div>

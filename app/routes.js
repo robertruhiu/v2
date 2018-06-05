@@ -8,7 +8,8 @@ module.exports = function (app, passport) {
 
 
     app.get('/', function (req, res) {
-        res.render('users/signin', {layout: 'users',message: req.flash('loginMessage')});
+        var messages = req.flash('error');
+        res.render('users/signin', {layout: 'users',message: messages, hasErrors: messages.length >0 });
     });
 
 
@@ -19,7 +20,8 @@ module.exports = function (app, passport) {
     }));
 
     app.get('/signup', function (req, res) {
-        res.render('users/signup', {layout: 'users',message: req.flash('loginMessage')});
+        var messages = req.flash('error');
+        res.render('users/signup', {layout: 'users',message: messages, hasErrors: messages.length >0 });
     });
     app.post('/signup', passport.authenticate('local-signup', {
         successRedirect: '/index',

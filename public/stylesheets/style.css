@@ -577,7 +577,7 @@ button.btn.btn-previous:active:focus, button.btn.btn-previous.active:focus {
 
 
 .great{
-    margin-top: 10%;
+    margin-top: -4%;
 }
 .great1{
     margin-top: 25%;
@@ -585,4 +585,8 @@ button.btn.btn-previous:active:focus, button.btn.btn-previous.active:focus {
 
 .gr{
     height: 100%;
+}
+.beer{
+    height: 50%;
+    width: 69%;
 }
