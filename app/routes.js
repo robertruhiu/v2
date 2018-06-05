@@ -8,26 +8,23 @@ module.exports = function (app, passport) {
 
 
     app.get('/', function (req, res) {
-        res.render('users/signin', {layout: 'users'});
-    });
-    app.get('/hs', function (req, res) {
-        res.render('users/hs', {layout: 'users'});
+        res.render('users/signin', {layout: 'users',message: req.flash('loginMessage')});
     });
 
-    app.post('/signin', passport.authenticate('local-login', {
+
+    app.post('/login', passport.authenticate('local-login', {
         successRedirect: '/index',
-        failureRedirect: '/hs',
+        failureRedirect: '/',
         failureFlash: true
     }));
 
     app.get('/signup', function (req, res) {
-        res.render('users/signup', {layout: 'users'});
+        res.render('users/signup', {layout: 'users',message: req.flash('loginMessage')});
     });
-
-   app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect : '/index', // redirect to the secure profile section
-        failureRedirect : '/', // redirect back to the signup page if there is an error
-        failureFlash : true // allow flash messages
+    app.post('/signup', passport.authenticate('local-signup', {
+        successRedirect: '/index',
+        failureRedirect: '/signup',
+        failureFlash: true
     }));
 
    app.post('/profile', function (req,res) {
