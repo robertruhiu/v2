@@ -1,11 +1,10 @@
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
 var profileSchema = mongoose.Schema({
-    local            : {
 
-        username     : String,
-        company      : String
-    },
+    username:{type:String,required:true},
+    company:{type:String,required:true},
+    position:{type:String,required:true}
+
 });
 
 

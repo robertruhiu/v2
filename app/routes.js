@@ -24,27 +24,32 @@ module.exports = function (app, passport) {
         res.render('users/signup', {layout: 'users',message: messages, hasErrors: messages.length >0 });
     });
     app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/index',
+        successRedirect: '/profile',
         failureRedirect: '/signup',
         failureFlash: true
     }));
 
-   app.post('/profile', function (req,res) {
+    app.get('/profile', function (req, res) {
+        var messages = req.flash('error');
+        res.render('users/profile', {layout: 'users',message: messages, hasErrors: messages.length >0 });
+    });
+
+    app.post('/profile' ,function (req,res) {
 
         var profile =new Profile({
 
             username:req.body.username,
-            company:req.body.company
+            company:req.body.company,
+            position:req.body.position
         });
         profile.save(function (err,result) {
-
-
             res.redirect('/index')
-
         })
 
-
     });
+
+
+
 
 
     app.get('/add-to-cart/:id', function (req, res) {

@@ -20,11 +20,7 @@
         </div>
         <div class="col-lg-4 ">
 
-
-            <form action="/signup" method="post">
-
-            <div class="form-group great1">
-                <h4>Sign up</h4>
+            <h4>Sign up</h4>
                 {{#if hasErrors}}
                     <div class="alert alert-danger">
                         {{#each message}}
@@ -34,6 +30,11 @@
                     </div>
 
                     {{/if}}
+            <form id="signup" action="/signup" method="post">
+
+
+            <div class="form-group">
+
                 <label>Email</label>
                 <input type="text" class="form-control" name="email">
             </div>
@@ -41,8 +42,9 @@
                 <label>Password</label>
                 <input type="password" class="form-control" name="password">
             </div>
+                <button type="submit"  class="btn btn-warning btn-lg">Signup</button>
 
-            <button type="submit" class="btn btn-warning btn-lg">Signup</button>
+
         </form>
 
         <hr>
