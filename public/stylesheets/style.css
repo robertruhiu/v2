@@ -173,7 +173,7 @@ body {
 }
 
 a, a:hover, a:focus {
-    color: #2524ff;
+    color: #000000;
     text-decoration: none;
     -o-transition: all .3s;
     -moz-transition: all .3s;
