@@ -1,0 +1,10 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/inspectionProfiles/
+.idea/workspace.xml
+node_modules/bcrypt/node_modules/are-we-there-yet/CHANGES.md~
+node_modules/bcrypt/node_modules/console-control-strings/README.md~
+node_modules/extglob/lib/.DS_Store
+node_modules/micromatch/lib/.DS_Store
+node_modules/nanomatch/lib/.DS_Store
+node_modules
+seed
