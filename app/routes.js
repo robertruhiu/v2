@@ -6,8 +6,12 @@ module.exports = function (app, passport) {
 
 
 
+    app.get('/', function (req,res) {
+        res.render('landing/home',{layout: 'homelayout'})
 
-    app.get('/', function (req, res) {
+    })
+
+    app.get('/login', function (req, res) {
         var messages = req.flash('error');
         res.render('users/signin', {layout: 'users',message: messages, hasErrors: messages.length >0 });
     });
@@ -15,7 +19,7 @@ module.exports = function (app, passport) {
 
     app.post('/login', passport.authenticate('local-login', {
         successRedirect: '/index',
-        failureRedirect: '/',
+        failureRedirect: '/login',
         failureFlash: true
     }));
 
@@ -52,22 +56,7 @@ module.exports = function (app, passport) {
 
 
 
-    app.get('/add-to-cart/:id', function (req, res) {
-        var productId = req.params.id;
-        var cart = new Cart(req.session.cart ? req.session.cart : {});
 
-        Ofinterest.findById(productId, function (err, product) {
-            if (err) {
-                return res.redirect('/');
-            }
-            cart.add(product, product.id);
-            req.session.cart = cart;
-            req.flash('cartadd', 'added to cart');
-            console.log(cart);
-            res.redirect('/');
-        });
-
-    });
 
 
 
@@ -111,6 +100,7 @@ module.exports = function (app, passport) {
     app.get('/details', function (req, res, next) {
         res.render('candidate/detailsproject', {layout: 'candidatelayout'});
     });
+
 
 
 };
