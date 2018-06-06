@@ -41,6 +41,12 @@
     border-radius: .0px;
     margin-top: -3%;
 }
+.jumbo2{
+
+    background-color: #e1f2f678;
+    border-radius: .0px;
+
+}
 .jumbofoot{
     margin-top: 1%;
     margin-bottom: 0rem;
@@ -66,4 +72,9 @@
 .fly{
 
     border:0px
+}
+.benefit{
+    width:30%;
+    margin-bottom: 5%;
+
 }
