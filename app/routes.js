@@ -60,44 +60,44 @@ module.exports = function (app, passport) {
 
 
 
-    app.get('/index',function (req, res, next) {
+    app.get('/index',isLoggedIn ,function (req, res, next) {
         res.render('cto/index');
     });
 
 
-    app.get('/library', function (req, res, next) {
+    app.get('/library',isLoggedIn , function (req, res, next) {
         res.render('cto/library');
     });
 
-    app.get('/custom', function (req, res, next) {
+    app.get('/custom',isLoggedIn , function (req, res, next) {
         res.render('cto/custom');
     });
-    app.get('/requirements', function (req, res, next) {
+    app.get('/requirements',isLoggedIn , function (req, res, next) {
         res.render('cto/require');
     });
 
-    app.get('/invites', function (req, res, next) {
+    app.get('/invites',isLoggedIn , function (req, res, next) {
         res.render('cto/invites');
     });
-    app.get('/invoice', function (req, res, next) {
+    app.get('/invoice',isLoggedIn , function (req, res, next) {
         res.render('cto/payment');
     });
 
 
 
-    app.get('/project', function (req, res, next) {
+    app.get('/project',isLoggedIn , function (req, res, next) {
         res.render('cto/project');
     });
 
-    app.get('/fullreport', function (req, res, next) {
+    app.get('/fullreport',isLoggedIn , function (req, res, next) {
         res.render('cto/fullreport' ,{layout: 'reportlayout'});
     });
 
-    app.get('/candidate',function (req, res, next) {
+    app.get('/candidate',isLoggedIn ,function (req, res, next) {
         res.render('candidate/candidate', {layout: 'candidatelayout'});
     });
 
-    app.get('/details', function (req, res, next) {
+    app.get('/details',isLoggedIn , function (req, res, next) {
         res.render('candidate/detailsproject', {layout: 'candidatelayout'});
     });
 
@@ -110,5 +110,5 @@ function isLoggedIn(req, res, next) {
         return next();
     }
 
-    res.redirect('/');
+    res.redirect('/login');
 }
