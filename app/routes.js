@@ -101,7 +101,7 @@ module.exports = function (app, passport) {
     });
 
     app.get('/fullreport', function (req, res, next) {
-        res.render('cto/fullreport');
+        res.render('cto/fullreport' ,{layout: 'reportlayout'});
     });
 
     app.get('/candidate',function (req, res, next) {
